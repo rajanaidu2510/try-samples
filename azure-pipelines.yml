@@ -1,4 +1,5 @@
 # CI and PR triggers
+
 trigger:
 - main
 pr:
@@ -22,4 +23,9 @@ jobs:
        packageType: sdk
        version: 2.1.700
        installationPath: $(Agent.ToolsDirectory)/dotnet
+   - task: CopyPublishBuildArtifacts@1
+     inputs:
+      Contents: '*'
+      ArtifactName: 'dist'
+      ArtifactType: 'FilePath'
    - script: build.cmd
