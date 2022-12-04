@@ -23,9 +23,9 @@ jobs:
        packageType: sdk
        version: 2.1.700
        installationPath: $(Agent.ToolsDirectory)/dotnet
+   - script: build.cmd
    - task: CopyPublishBuildArtifacts@1
      inputs:
       Contents: '*'
       ArtifactName: 'dist'
-      ArtifactType: 'FilePath'
-   - script: build.cmd
+      ArtifactType: 'Container'
